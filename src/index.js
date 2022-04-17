@@ -4,7 +4,15 @@
  * @param {string} string
  * @returns {string}
  */
-export const replaceZAndVFromString = (string) => {};
+export const replaceZAndVFromString = (string) => {
+  let array = string.split('');
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].toLowerCase() === 'z' || array[i].toLowerCase() === 'v') {
+      array[i] = '*';
+    }
+  }
+  return array.join('');
+};
 
 /**
  * Функция должна принять 3 аргумента и все строки. Мы передаем строку,
@@ -16,7 +24,15 @@ export const replaceZAndVFromString = (string) => {};
  * @param {string} newWord
  * @returns {string}
  */
-export const changeWord = (string, word, newWord) => {};
+export const changeWord = (string, word, newWord) => {
+  let array = string.split(' ');
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].toLowerCase() === word) {
+      array[i] = newWord;
+    }
+  }
+  return array.join(' ');
+};
 
 /**
  * Должна вернуть строку(1 аргумент) на обрезанную по длине(2 аргумент, число)
@@ -24,7 +40,9 @@ export const changeWord = (string, word, newWord) => {};
  * @param {number} length
  * @returns {string}
  */
-export const truncate = (string, length) => {};
+export const truncate = (string, length) => {
+  return string.slice(0, length);
+};
 
 /**
  * Принимает строку в первом аргументе, и символ во втором
@@ -37,7 +55,16 @@ export const truncate = (string, length) => {};
  * @param {string} symbol
  * @returns {number}
  */
-export const quantityOfSymbols = (string, symbol) => {};
+export const quantityOfSymbols = (string, symbol) => {
+  let array = string.split('');
+  let counter = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].toLowerCase() === symbol) {
+      counter++;
+    }
+  }
+  return counter;
+};
 
 /**
  * Принимает строку в первом аргументе, и символ во втором
@@ -54,4 +81,16 @@ export const quantityOfSymbols = (string, symbol) => {};
  * @param {string} symbol
  * @returns {number}
  */
-export const quantityOfSymbolsWithIndexOf = (string, symbol) => {};
+export const quantityOfSymbolsWithIndexOf = (string, symbol) => {
+  let counter = 0;
+  let startPosition = 0;
+  while (true) {
+    if (string.toLowerCase().indexOf(symbol.toLowerCase(), startPosition) !== -1) {
+      counter++
+      startPosition = string.toLowerCase().indexOf(symbol, startPosition) + 1;
+    } else {
+      break;
+    }
+  };
+  return counter;
+};
