@@ -27,7 +27,7 @@ export const replaceZAndVFromString = (string) => {
 export const changeWord = (string, word, newWord) => {
   let array = string.split(' ');
   for (let i = 0; i < array.length; i++) {
-    if (array[i].toLowerCase() === word) {
+    if (array[i].toLowerCase() === word.toLowerCase()) {
       array[i] = newWord;
     }
   }
